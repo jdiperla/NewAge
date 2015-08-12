@@ -1,6 +1,6 @@
 //This file has all the data needed to load up a room.
-/* Usage: var GameRoom1 = new GameRoom("Bathroom", "A tiny bathroom", 0, 320, 240);
-Then execute the function by calling GameRoom1.SetRoomSize or GameRoom1.LoadRoomBackground, etc..
+/* Usage: var GameRoom1 = new GameRoom("Bathroom", "A tiny bathroom", 0, 320, 240, 'http://www.adventuregamestudio.co.uk/images/agsscreens.png');
+Then execute the function by calling GameRoom1.Create(); - This will draw the Room with just a simple command.
 */
 
 function GameRoom(RoomName, RoomDesc, id, XRes, YRes, RoomImage) {
@@ -10,26 +10,22 @@ function GameRoom(RoomName, RoomDesc, id, XRes, YRes, RoomImage) {
     this.XRes = XRes,
     this.YRes = YRes,
     this.RmImg = RoomImage;
-    this.SetRoomSize = function(){
+    this.Create = function(){
            document.getElementById("StartRoomLoad").innerHTML += "<canvas id='RoomBackground' width='" + XRes + "' height='" + YRes + "'></canvas>";      
-                            },
-    this.LoadRoomBackground = function(){
-          var canvas = document.getElementById('RoomBackground');
-        var context = canvas.getContext('2d');
+    LoadRoomBackground(this.RmImg);                        
+    };
+}
+    function LoadRoomBackground(RoomImage){
+                  // load image from data url
+        var canvas = document.getElementById('RoomBackground');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
 
-        // load image from data url
-        var imageObj = new Image();
-        imageObj.onload = function() {
-          context.drawImage(this, 0, 0);
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 0, 0);
+      };
+      imageObj.src = RoomImage;
         };
-
-        imageObj.src = RmImg;
-      }
-    };                            
-      
-      
- 
-
 
 
 

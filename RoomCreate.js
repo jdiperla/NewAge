@@ -3,12 +3,13 @@
 Then execute the function by calling GameRoom1.SetRoomSize or GameRoom1.LoadRoomBackground, etc..
 */
 
-function GameRoom(RoomName, RoomDesc, id, XRes, YRes) {
+function GameRoom(RoomName, RoomDesc, id, XRes, YRes, RoomImage) {
     this.RoomName = RoomName;
     this.RoomDesc = RoomDesc;
     this.id = id;
     this.XRes = XRes,
     this.YRes = YRes,
+    this.RmImg = RoomImage;
     this.SetRoomSize = function(){
            document.getElementById("StartRoomLoad").innerHTML += "<canvas id='RoomBackground' width='" + XRes + "' height='" + YRes + "'></canvas>";      
                             },

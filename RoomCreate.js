@@ -1,6 +1,7 @@
 //This file has all the data needed to load up a room.
 /* Usage: var GameRoom1 = new GameRoom("Bathroom", "A tiny bathroom", 0, 320, 240, 'http://www.adventuregamestudio.co.uk/images/agsscreens.png');
 Then execute the function by calling GameRoom1.Create(); - This will draw the Room with just a simple command.
+To load a new room, the engine must call GameRoom1.Destroy() so that it can clear all parameters on screen and create the new room without overlapping the old one.
 */
 
 function GameRoom(RoomName, RoomDesc, id, XRes, YRes, RoomImage) {
@@ -13,6 +14,9 @@ function GameRoom(RoomName, RoomDesc, id, XRes, YRes, RoomImage) {
     this.Create = function(){
            document.getElementById("StartRoomLoad").innerHTML += "<canvas id='RoomBackground' width='" + XRes + "' height='" + YRes + "'></canvas>";      
     LoadRoomBackground(this.RmImg);                        
+    },
+    this.Destroy = function() {
+        document.getElementById("StartRoomLoad").innerHTML = "";
     };
 }
     function LoadRoomBackground(RoomImage){

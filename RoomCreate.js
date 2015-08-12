@@ -1,16 +1,18 @@
 //This file has all the data needed to load up a room.
+/* Usage: var GameRoom1 = new GameRoom("Bathroom", "A tiny bathroom", 0, 320, 240);
+Then execute the function by calling GameRoom1.SetRoomSize or GameRoom1.LoadRoomBackground, etc..
+*/
 
-//Initiates the canvas and resolution size of the background. 
-var GameRoom = {
-    RoomName: "",
-    RoomDesc : "",
-    id       : 0,
-    XRes     : 320,
-    YRes     : 240,
-    SetRoomSize : function(){
+function GameRoom(RoomName, RoomDesc, id, XRes, YRes) {
+    this.RoomName = RoomName;
+    this.RoomDesc = RoomDesc;
+    this.id = id;
+    this.XRes = XRes,
+    this.YRes = YRes,
+    this.SetRoomSize = function(){
            document.getElementById("StartRoomLoad").innerHTML += "<canvas id='RoomBackground' width='" + XRes + "' height='" + YRes + "'></canvas>";      
                             },
-    LoadRoomBackground : function(){
+    this.LoadRoomBackground = function(){
           var canvas = document.getElementById('RoomBackground');
         var context = canvas.getContext('2d');
 
@@ -23,6 +25,7 @@ var GameRoom = {
         imageObj.src = RmImg;
       }
     };                            
+      
       
  
 

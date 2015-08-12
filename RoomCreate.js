@@ -13,21 +13,22 @@ function GameRoom(RoomName, RoomDesc, id, XRes, YRes, RoomImage) {
     this.RmImg = RoomImage;
     this.Create = function(){
            document.getElementById("StartRoomLoad").innerHTML += "<canvas id='RoomBackground' width='" + XRes + "' height='" + YRes + "'></canvas>";      
-    LoadRoomBackground(this.RmImg);                        
-    },
+                    LoadRoomBackground(this.RmImg);                        
+                            },
     this.Destroy = function() {
         document.getElementById("StartRoomLoad").innerHTML = "";
-    };
+                               };
 }
-    function LoadRoomBackground(RoomImage){
+   
+   
+function LoadRoomBackground(RoomImage){
                   // load image from data url
-        var canvas = document.getElementById('RoomBackground');
-      var context = canvas.getContext('2d');
-      var imageObj = new Image();
-
-      imageObj.onload = function() {
+    var canvas = document.getElementById('RoomBackground');
+    var context = canvas.getContext('2d');
+    var imageObj = new Image();
+    imageObj.onload = function() {
         context.drawImage(imageObj, 0, 0);
-      };
+                                  };
       imageObj.src = RoomImage;
         };
 

@@ -23,3 +23,4 @@ function GameSprites(id, SpriteArray){
   this.id = id;
 }
 
+  

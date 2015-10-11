@@ -6,22 +6,28 @@ textCMD will the command word that was parsed(EG: Look, Talk, etc...). objectTXT
 function Parse(var myActionArray[], var myIgnoredWords[], var consoleString) {
 		var myStringArray = myActionArray[]; //pick up list of possible actions
 		var arrayLength = myStringArray.length;
-               for (var i = 0; i < arrayLength; i++) {
+		
+                   for (var i = 0; i < arrayLength; i++) {
                       //When it picks a particular command word at the beginning up it will save it
                       var cmdSTR = consoleString;
                       var textCMD = cmdSTR.split(' ')[0];
                       //replace the command word and unnecessary other words in the text so you can find the object
+                             
                              if (textCMD == myStringArray[i]){
                                        var objectTXT = cmdSTR;
                                        objectTXT = cmdSTR.replace(textCMD, "");
                                        var myUselessWords =myIgnoreWords[];
                                        var uselessLength = myUselessWords.length;
+                                            
                                             for (var t = 0; t < uselessLength; t++) {
                                                   var uselessCollection = [];
                                                   uselessCollection.push = t;
                                                   objectTXT = objectTXT.replace(myUselessWords[t], "");
                                                   return textCMD + "_" + objectTXT + "()"; 
                                                                                      }
+                                                                                     
                                                                  }
-                                                      	}
-}
+                                                                 
+                                                      	     }
+                                                      	     
+}   //end function parse

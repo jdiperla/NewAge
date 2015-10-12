@@ -3,7 +3,7 @@ the correct function to perform. myActionArray and myStringArray act as a contai
 act as a container for words to ignore such "With, on, for, etc...". consoleString & cmdSTR would be the complete command entered by the user.
 textCMD will the command word that was parsed(EG: Look, Talk, etc...). objectTXT grabs the object that we are performing the action on. */
 
-function Parse(var myActionArray[], var myIgnoredWords[], var consoleString) {
+function ParsePlayerInput(var myActionArray[], var myIgnoredWords[], var consoleString) {
 		var myStringArray = myActionArray[]; //pick up list of possible action
 		var arrayLength = myStringArray.length;
 		
@@ -31,4 +31,4 @@ function Parse(var myActionArray[], var myIgnoredWords[], var consoleString) {
                                                                  
                                                       	     }
                                                       	     
-}   //end function parse
+}   //end function ParsePlayerInput

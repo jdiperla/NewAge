@@ -4,16 +4,17 @@ act as a container for words to ignore such "With, on, for, etc...". consoleStri
 textCMD will the command word that was parsed(EG: Look, Talk, etc...). objectTXT grabs the object that we are performing the action on. */
 
 function Parse(var myActionArray[], var myIgnoredWords[], var consoleString) {
-		var myStringArray = myActionArray[]; //pick up list of possible actions
+		var myStringArray = myActionArray[]; //pick up list of possible action
 		var arrayLength = myStringArray.length;
 		
                    for (var i = 0; i < arrayLength; i++) {
                       //When it picks a particular command word at the beginning up it will save it
-                      var cmdSTR = consoleString;
+                      var cmdSTR = consoleString.toLowerCase(); //make the command lowercase to avoid case issues
                       var textCMD = cmdSTR.split(' ')[0];
+                      textCMD = textCMD.toLowerCase(); //make this lower case so case sensitivity is not activated 
                       //replace the command word and unnecessary other words in the text so you can find the object
                              
-                             if (textCMD == myStringArray[i]){
+                             if (textCMD == myStringArray[i].toLowerCase()){
                                        var objectTXT = cmdSTR;
                                        objectTXT = cmdSTR.replace(textCMD, "");
                                        var myUselessWords =myIgnoreWords[];
@@ -22,7 +23,7 @@ function Parse(var myActionArray[], var myIgnoredWords[], var consoleString) {
                                             for (var t = 0; t < uselessLength; t++) {
                                                   var uselessCollection = [];
                                                   uselessCollection.push = t;
-                                                  objectTXT = objectTXT.replace(myUselessWords[t], "");
+                                                  objectTXT = objectTXT.replace(myUselessWords[t].toLowerCase(), "");
                                                   return textCMD + "_" + objectTXT + "()"; 
                                                                                      }
                                                                                      

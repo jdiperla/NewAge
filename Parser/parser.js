@@ -3,32 +3,43 @@ the correct function to perform. myActionArray and myStringArray act as a contai
 act as a container for words to ignore such "With, on, for, etc...". consoleString & cmdSTR would be the complete command entered by the user.
 textCMD will the command word that was parsed(EG: Look, Talk, etc...). objectTXT grabs the object that we are performing the action on. */
 
-function ParsePlayerInput(var myActionArray[], var myIgnoredWords[], var consoleString) {
-		var myStringArray = myActionArray[]; //pick up list of possible action
-		var arrayLength = myStringArray.length;
+/*A sample call to this function would be: ParsePlayerInput('look,Talk,Walk,Take', 'the,At,On', 'Look at the Shiny Lamp')"; 
+A way to also do a "give" and "use with" or "put on" without ignoring the words needed or to separate the objects. That will 
+be on the next edit */
+function ParsePlayerInput(myActionArray, myIgnoredWords, consoleString) {
+		var myStringArray = myActionArray;
+		myStringArray = myStringArray.toLowerCase();
+		myStringArray = myStringArray.split(",");
+		var myUselessWords = myIgnoredWords;
+	
+		myUselessWords = myUselessWords.toLowerCase();
+		myUselessWords = myUselessWords.split(",");
+	
+		var consoleString = consoleString;
+		consoleString = consoleString.toLowerCase();
+	
+		var tokens = consoleString.trim().split(' ');
+		var textcmd = '';
 		
-                   for (var i = 0; i < arrayLength; i++) {
-                      //When it picks a particular command word at the beginning up it will save it
-                      var cmdSTR = consoleString.toLowerCase(); //make the command lowercase to avoid case issues
-                      var textCMD = cmdSTR.split(' ')[0];
-                      textCMD = textCMD.toLowerCase(); //make this lower case so case sensitivity is not activated 
-                      //replace the command word and unnecessary other words in the text so you can find the object
-                             
-                             if (textCMD == myStringArray[i].toLowerCase()){
-                                       var objectTXT = cmdSTR;
-                                       objectTXT = cmdSTR.replace(textCMD, "");
-                                       var myUselessWords =myIgnoreWords[];
-                                       var uselessLength = myUselessWords.length;
-                                            
-                                            for (var t = 0; t < uselessLength; t++) {
-                                                  var uselessCollection = [];
-                                                  uselessCollection.push = t;
-                                                  objectTXT = objectTXT.replace(myUselessWords[t].toLowerCase(), "");
-                                                  return textCMD + "_" + objectTXT + "()"; 
-                                                                                     }
-                                                                                     
-                                                                 }
-                                                                 
-                                                      	     }
-                                                      	     
+			for (var i = 0; i < myStringArray.length; i++) {
+   			//When it picks a particular word up it will save it.
+				if(myStringArray[i] === tokens[0])
+					{
+						textcmd = tokens[0];
+					}
+									}
+//replace the command word and unnecessary other words in the text
+				if(textcmd)
+						{
+							tokens.shift();
+							for (var t = 0; t < myUselessWords.length; t++)
+								{
+					
+									var tokenIdx = tokens.indexOf(myUselessWords[t]);
+									if(tokenIdx > -1) tokens.splice(tokenIdx,1);
+								}
+				var objecttxt = tokens.join(' ');
+				objecttxt = objecttxt.replace(/ /g, "_");
+				return objecttxt + "_" + textcmd + "()";
+						}                                                     	     
 }   //end function ParsePlayerInput

@@ -17,6 +17,12 @@ function GameRoom(RoomName, RoomDesc, id, XRes, YRes, RoomImage) {
                             },
     this.Destroy = function() {
         document.getElementById("StartRoomLoad").innerHTML = "";
+        this.RoomName = "";
+        this.RoomDesc = "";
+        this.id = "";
+        this.XRes = "",
+        this.YRes = "",
+        this.RmImg = "";
                                };
 }
    

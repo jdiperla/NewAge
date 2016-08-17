@@ -6,7 +6,7 @@ textCMD will the command word that was parsed(EG: Look, Talk, etc...). objectTXT
 /*A sample call to this function would be: ParsePlayerInput('look,Talk,Walk,Take', 'the,At,On', 'Look at the Shiny Lamp')"; 
 A way to also do a "give" and "use with" or "put on" without ignoring the words needed or to separate the objects. That will 
 be on the next edit */
-function ParsePlayerInput(myActionArray, myIgnoredWords, consoleString) {
+function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, consoleString) {
 		var myStringArray = myActionArray;
 		myStringArray = myStringArray.toLowerCase();
 		myStringArray = myStringArray.split(",");

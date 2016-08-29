@@ -1,5 +1,5 @@
 # JavaAge
-JavaAge(Tentative Title) is a new Text/Point and Click/Dialog Adventure Game Engine that will partly mimic a Point and Click Adventure Game 1st person adventure and a Text Adventure Game/Visual Novel while utilizing Dialogs. It will feature a fully cross platform editor and a fully cross platform game engine and its own scripting language to make creating games easier. This will not feature a pathfinding engine.
+JavaAge(Tentative Title) is primarily a new Text adventure game engine that will eventually incorporate minor Point and Click/Dialog Adventure Game features that will partly mimic a Point and Click Adventure Game, 1st person adventure and a Text Adventure Game/Visual Novel while utilizing Dialogs. It will feature a fully cross platform editor and a fully cross platform game engine and its own scripting language to make creating games easier. This will not feature a pathfinding engine.
 
 ### Planned Features
 * Already fully Integrated commands for you to use so there is hardly any coding necessary to do on the part of the user.

@@ -6,11 +6,13 @@ var XRes = "320";
 var YRes = "240";
 
 //These variables are for the games interactions, GUI and inventory
-var AddtoInventory = new Array();
-var GameActions = new Array("Look At","Take","Combine","Speak","Take Off","Put on","Punch","Kick","Lick","Taste","Smell","Push","Pull","Walk to","Talk to","Pick up", "Drop","Call","Fight","Read","Open","Close","What is","Turn on", "Turn off","Switch","Travel");
-var SpecialGameActions = new Array("Use","Give");
-var CurrentCursorMode = "Walk to";
-var DefaultCursorMode = "Walk to";
+
+//var GameActions = new Array("Look","Take","Combine","Speak","Take Off","Put on","Punch","Kick","Lick","Taste","Smell","Push","Pull","Walk to","Talk to","Pick up", "Drop","Call","Fight","Read","Open","Close","What is","Turn on", "Turn off","Switch","Travel");
+var GameActions = new Array();
+//var SpecialGameActions = new Array("Use","Give");
+var SpecialGameActions = new Array();
+var CurrentCursorMode = "Look";
+var DefaultCursorMode = "Look";
 var PreviousCursorMode = "Look";
 var SierraCurModeCycle = new Array(); // This is the area used to cycle through the cursor modes when right clicking, like in Sierra games
 var SierraCurModeCurrent = 0; //This will define the Current cursor mode if Sierra Style Cursor Mode is chosen.

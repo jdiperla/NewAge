@@ -1,9 +1,18 @@
 //Global variables, definitions and functions
 
 //These are for initial game settings
-var GameCanvas = "";
-var XRes = "320";
-var YRes = "240";
+var GameName;
+var GameDescription;
+
+//Details for Game porting and use of Phonegap config.xml
+var GameID;
+var GameVersion;
+var GameAuthor;
+var GameAuthorEmail;
+var iOSGamePkgName;
+var WindowsPkgName;
+var AndroidPkgName;
+
 
 //These variables are for the games interactions, GUI and inventory
 

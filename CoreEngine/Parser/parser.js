@@ -43,3 +43,24 @@ function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, console
 				return objecttxt + "_" + textcmd + "()";
 						}                                                     	     
 }   //end function ParsePlayerInput
+
+
+function ParsePlayerDoubleClick() {
+	$(document).ready(function() {
+
+    var plah = $('plah');
+    plah.css({ cursor: 'pointer' });
+
+    plah.dblclick(function(e) {
+        var range = window.getSelection() || document.getSelection() || document.selection.createRange();
+        var word = $.trim(range.toString());
+        if(word != '') {
+            alert(word);
+        }
+        range.collapse();
+        e.stopPropagation();
+    });
+    
+});
+}
+}

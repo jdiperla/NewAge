@@ -27,6 +27,7 @@ var SierraCurModeCycle = new Array(); // This is the area used to cycle through 
 var SierraCurModeCurrent = 0; //This will define the Current cursor mode if Sierra Style Cursor Mode is chosen.
 var SierraCurModeMax = 4; //The max number of cycles to go through to get at zero, starting from zero and counting up
 var CurSelectedItem = ""; //set up for clickable/gui interfaces
+var CurUIType = ""; //Determines the currently used interface for the game.
 
 //Defining the objects, characters and other functions.
 
@@ -45,6 +46,7 @@ function SetUIInterfaceShow(UI) {
       $('#DIV_ButtonClick').hide();
       $('#DIV_Dialog').hide();
       $('#DIV_GUI').hide();
+      CurUIType = "text";
       break;
       
     case 'bclick':
@@ -52,6 +54,7 @@ function SetUIInterfaceShow(UI) {
       $('#DIV_ButtonClick').show();
       $('#DIV_Dialog').hide();
       $('#DIV_GUI').hide();
+      CurUIType = "bclick";
       break;
       
     case 'dialog':
@@ -59,6 +62,7 @@ function SetUIInterfaceShow(UI) {
       $('#DIV_ButtonClick').hide();
       $('#DIV_Dialog').show();
       $('#DIV_GUI').hide();
+      CurUIType = "dialog";
       break;
       
     case 'gui':
@@ -66,6 +70,7 @@ function SetUIInterfaceShow(UI) {
       $('#DIV_ButtonClick').hide();
       $('#DIV_Dialog').hide();
       $('#DIV_GUI').show();
+      CurUIType = "gui";
       break;
   
     default 'text':
@@ -73,5 +78,6 @@ function SetUIInterfaceShow(UI) {
       $('#DIV_ButtonClick').hide();
       $('#DIV_Dialog').hide();
       $('#DIV_GUI').hide();
+      CurUIType = "text";
         }
 }

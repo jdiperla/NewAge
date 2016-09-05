@@ -7,13 +7,8 @@ textCMD will the command word that was parsed(EG: Look, Talk, etc...). objectTXT
 A way to also do a "give" and "use with" or "put on" without ignoring the words needed or to separate the objects. That will 
 be on the next edit */
 function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, consoleString) {
-	//Let's start delimiting some words
-	delimeterWords = delimeterWords.replace(/\Wand\W/g, " on ");
-        delimeterWords = delimeterWords.split(/\Won\W/g);
-        delimeterWords = delimeterWords.toString();
-	var delimetedWords = new Array();
-	delimetedWords = delimeterWords.split(",");
 	
+  
 		var myStringArray = myActionArray;
 		myStringArray = myStringArray.toLowerCase();
 		myStringArray = myStringArray.split(",");
@@ -47,10 +42,17 @@ function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, console
 								}
 				var objecttxt = tokens.join(' ');
 				objecttxt = objecttxt.replace(/ /g, "_");
-				return objecttxt + "_" + textcmd + "()";
+        
+        delimetedWords = objecttxt.replace(/\Wand\W/g, delimeterWords);
+        delimetedWords = delimetedWords.split(/\Won\W/g);
+        delimetedWords = delimetedWords.toString();
+	var FdelimetedWords = new Array();
+	FdelimetedWords = FdelimeterWords.split(",");
+	
+        
+				alert(objecttxt + "_" + textcmd + "(" + FdelimetedWords + "")");
 						}                                                     	     
 }   //end function ParsePlayerInput
-
 
 function ParsePlayerDoubleClick() {
 	$(document).ready(function() {

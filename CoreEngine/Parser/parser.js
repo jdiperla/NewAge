@@ -41,18 +41,25 @@ function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, console
 									if(tokenIdx > -1) tokens.splice(tokenIdx,1);
 								}
 				var objecttxt = tokens.join(' ');
-				objecttxt = objecttxt.replace(/ /g, "_");
         
         delimetedWords = objecttxt.replace(/\Wand\W/g, delimeterWords);
         delimetedWords = delimetedWords.split(/\Won\W/g);
-        delimetedWords = delimetedWords.toString();
+  
+  delimetedWords = delimetedWords.toString();
+  
 	var FdelimetedWords = new Array();
-	FdelimetedWords = FdelimeterWords.split(",");
-	
+	FdelimetedWords = delimetedWords.split(",");
         
-				alert(objecttxt + "_" + textcmd + "(" + FdelimetedWords + "")");
+				objecttxt = objecttxt.replace(/ /g, "_");
+        
+           
+	
+     
+        
+				return objecttxt + "_" + textcmd + "(" + FdelimetedWords + ")";
 						}                                                     	     
 }   //end function ParsePlayerInput
+
 
 function ParsePlayerDoubleClick() {
 	$(document).ready(function() {

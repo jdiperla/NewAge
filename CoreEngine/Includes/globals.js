@@ -34,4 +34,43 @@ function GameSprites(id, SpriteArray){
   this.id = id;
 }
 
+//Define the game interface type: Text, Button Click, Dialog or Graphical GUI... Not all will be developed at this time.
+
+function SetUIInterfaceShow(UI) {
+  switch(UI)
+  {
+    case 'text':
+      $('#DIV_TextParser').show();
+      $('#DIV_ButtonClick').hide();
+      $('#DIV_Dialog').hide();
+      $('#DIV_GUI').hide();
+      break;
+      
+    case 'bclick':
+      $('#DIV_TextParser').hide();
+      $('#DIV_ButtonClick').show();
+      $('#DIV_Dialog').hide();
+      $('#DIV_GUI').hide();
+      break;
+      
+    case 'dialog':
+      $('#DIV_TextParser').hide();
+      $('#DIV_ButtonClick').hide();
+      $('#DIV_Dialog').show();
+      $('#DIV_GUI').hide();
+      break;
+      
+    case 'gui':
+      $('#DIV_TextParser').hide();
+      $('#DIV_ButtonClick').hide();
+      $('#DIV_Dialog').hide();
+      $('#DIV_GUI').show();
+      break;
   
+    default 'text':
+      $('#DIV_TextParser').show();
+      $('#DIV_ButtonClick').hide();
+      $('#DIV_Dialog').hide();
+      $('#DIV_GUI').hide();
+        }
+}

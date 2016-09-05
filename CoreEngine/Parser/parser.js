@@ -48,14 +48,18 @@ function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, console
 function ParsePlayerDoubleClick() {
 	$(document).ready(function() {
 
-    var plah = $('plah');
-    plah.css({ cursor: 'pointer' });
+    var ObjDblClk = $('objdc');
+    ObjDblClk.css({ cursor: 'pointer' });
 
-    plah.dblclick(function(e) {
+    ObjDblClk.dblclick(function(e) {
         var range = window.getSelection() || document.getSelection() || document.selection.createRange();
         var word = $.trim(range.toString());
         if(word != '') {
-            alert(word);
+        	if CurUIType == "bclick" {
+        		$('#DIV_ShowButtonClick').show();		
+        		CurSelectedItem = word;
+        	}
+            
         }
         range.collapse();
         e.stopPropagation();

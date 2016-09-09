@@ -7,9 +7,9 @@ textCMD will the command word that was parsed(EG: Look, Talk, etc...). objectTXT
 A way to also do a "give" and "use with" or "put on" without ignoring the words needed or to separate the objects. That will 
 be on the next edit */
 function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, consoleString) {
-	
-  
-		var myStringArray = myActionArray;
+
+//make all input lowercase so all cases match
+	var myStringArray = myActionArray;
 		myStringArray = myStringArray.toLowerCase();
 		myStringArray = myStringArray.split(",");
 		var myUselessWords = myIgnoredWords;
@@ -22,7 +22,8 @@ function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, console
 	
 		var tokens = consoleString.trim().split(' ');
 		var textcmd = '';
-		
+
+//find the first word of the input, which will be the command word
 			for (var i = 0; i < myStringArray.length; i++) {
    			//When it picks a particular word up it will save it.
 				if(myStringArray[i] === tokens[0])
@@ -30,34 +31,51 @@ function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, console
 						textcmd = tokens[0];
 					}
 									}
-//replace the command word and unnecessary other words in the text
-				if(textcmd)
-						{
-							tokens.shift();
-							for (var t = 0; t < myUselessWords.length; t++)
-								{
-					
-									var tokenIdx = tokens.indexOf(myUselessWords[t]);
-									if(tokenIdx > -1) tokens.splice(tokenIdx,1);
-								}
-				var objecttxt = tokens.join(' ');
-        
-        delimetedWords = objecttxt.replace(/\Wand\W/g, delimeterWords);
-        delimetedWords = delimetedWords.split(/\Won\W/g);
+//
+
+if(textcmd)
+{
+//this removes the command word "textcmd" from the input string
+consoleString = consoleString.replace(textcmd, "");
+
+}
+
+//Remove the ignored words now
+myIgnoredWords = myIgnoredWords.toLowerCase();
+var a = myIgnoredWords.split(","),
+    i;
+
+for (i = 0; i < a.length; i++) {
+var replacedWord = " " + a[i] + " ";
+
+    consoleString = replaceAll(consoleString, replacedWord, " ");
   
-  delimetedWords = delimetedWords.toString();
+    
+}
+
+//This will replace delimeter words such as on/and/with or whatever is described with a comma to make it into an array
+delimeterWords = delimeterWords.toLowerCase();
+var a = delimeterWords.split(","),
+    i;
+
+for (i = 0; i < a.length; i++) {
+var replacedWord = " " + a[i] + " ";
+
+    consoleString = replaceAll(consoleString, replacedWord, ",");
   
-	var FdelimetedWords = new Array();
-	FdelimetedWords = delimetedWords.split(",");
-        
-				objecttxt = objecttxt.replace(/ /g, "_");
-        
-           
-	
-     
-        
-				return objecttxt + "_" + textcmd + "(" + FdelimetedWords + ")";
-						}                                                     	     
+    
+}
+
+//replace white space commands with an underscore after trimming the whitespaces at either end
+consoleString = consoleString.trim();
+consoleString = replaceAll(consoleString, " ", "_");
+      return textcmd + "(" + consoleString + ")";
+
+
+}
+
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
 }   //end function ParsePlayerInput
 
 

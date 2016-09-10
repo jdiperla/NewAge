@@ -74,10 +74,6 @@ consoleString = replaceAll(consoleString, " ", "_");
 
 }
 
-function replaceAll(str, find, replace) {
-  return str.replace(new RegExp(find, 'g'), replace);
-}   //end function ParsePlayerInput
-
 
 function ParsePlayerDoubleClick() {
 	$(document).ready(function() {

@@ -8,6 +8,10 @@ A way to also do a "give" and "use with" or "put on" without ignoring the words 
 be on the next edit */
 function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, consoleString) {
 
+//create array for delimeterWords and ignored words
+var coldelwords = new Array();
+var coligwords = new Array():
+
 //make all input lowercase so all cases match
 	var myStringArray = myActionArray;
 		myStringArray = myStringArray.toLowerCase();
@@ -47,7 +51,7 @@ var a = myIgnoredWords.split(","),
 
 for (i = 0; i < a.length; i++) {
 var replacedWord = " " + a[i] + " ";
-
+coligwords.push(replacedWords);
     consoleString = replaceAll(consoleString, replacedWord, " ");
   
     
@@ -62,14 +66,14 @@ for (i = 0; i < a.length; i++) {
 var replacedWord = " " + a[i] + " ";
 
     consoleString = replaceAll(consoleString, replacedWord, ",");
-  
+  coldelwords.push(replacedWords);
     
 }
 
 //replace white space commands with an underscore after trimming the whitespaces at either end
 consoleString = consoleString.trim();
 consoleString = replaceAll(consoleString, " ", "_");
-      return textcmd + "(" + consoleString + ")";
+      return textcmd + "(" + consoleString + ",'" + coldelwords + "')";
 
 
 }

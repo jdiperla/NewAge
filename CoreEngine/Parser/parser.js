@@ -52,7 +52,7 @@ var a = myIgnoredWords.split(","),
 
 for (i = 0; i < a.length; i++) {
 var replacedWord = " " + a[i] + " ";
-coligwords.push(replacedWord);
+coligwords.push(replacedWord.trim());
     consoleString = replaceAll(consoleString, replacedWord, " ");
   
     
@@ -67,7 +67,7 @@ for (i = 0; i < a.length; i++) {
 var replacedWord = " " + a[i] + " ";
 
     consoleString = replaceAll(consoleString, replacedWord, ",");
-  coldelwords.push(replacedWord);
+  coldelwords.push(replacedWord.trim());
     
 }
 for (var i = 0; i < consoleString.length; i++) {
@@ -81,8 +81,9 @@ consoleString = consoleString.trim();
 consoleString = replaceAll(consoleString, " ", "_");
 
 firstObj = consoleString.split(",", 2);
+consoleString = consoleString.replace(firstObj[0] + ",", "");
 
-      return textcmd + "_" + firstObj + "('" + trim(consoleString) + "','" + trim(coldelwords) + "')";
+      return textcmd + "_" + firstObj[0] + "('" + consoleString.trim() + "','" + coldelwords + "','" + coligwords + "')";
 
 
 }

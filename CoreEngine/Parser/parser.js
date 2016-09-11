@@ -70,12 +70,7 @@ var replacedWord = " " + a[i] + " ";
   coldelwords.push(replacedWord.trim());
     
 }
-for (var i = 0; i < consoleString.length; i++) {
-   			//When it picks a particular word up it will save it.
-				if(consoleString[i] === tokens[0])
-					{
-						firstObj = tokens[0];
-					}
+
 //replace white space commands with an underscore after trimming the whitespaces at either end
 consoleString = consoleString.trim();
 consoleString = replaceAll(consoleString, " ", "_");

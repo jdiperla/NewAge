@@ -10,7 +10,7 @@ function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, console
 
 //create array for delimeterWords and ignored words
 var coldelwords = new Array();
-var coligwords = new Array():
+var coligwords = new Array();
 
 //make all input lowercase so all cases match
 	var myStringArray = myActionArray;
@@ -26,6 +26,7 @@ var coligwords = new Array():
 	
 		var tokens = consoleString.trim().split(' ');
 		var textcmd = '';
+		var firstObj = '';
 
 //find the first word of the input, which will be the command word
 			for (var i = 0; i < myStringArray.length; i++) {
@@ -51,7 +52,7 @@ var a = myIgnoredWords.split(","),
 
 for (i = 0; i < a.length; i++) {
 var replacedWord = " " + a[i] + " ";
-coligwords.push(replacedWords);
+coligwords.push(replacedWord);
     consoleString = replaceAll(consoleString, replacedWord, " ");
   
     
@@ -66,14 +67,22 @@ for (i = 0; i < a.length; i++) {
 var replacedWord = " " + a[i] + " ";
 
     consoleString = replaceAll(consoleString, replacedWord, ",");
-  coldelwords.push(replacedWords);
+  coldelwords.push(replacedWord);
     
 }
-
+for (var i = 0; i < consoleString.length; i++) {
+   			//When it picks a particular word up it will save it.
+				if(consoleString[i] === tokens[0])
+					{
+						firstObj = tokens[0];
+					}
 //replace white space commands with an underscore after trimming the whitespaces at either end
 consoleString = consoleString.trim();
 consoleString = replaceAll(consoleString, " ", "_");
-      return textcmd + "(" + consoleString + ",'" + coldelwords + "')";
+
+firstObj = consoleString.split(",", 2);
+
+      return textcmd + "_" + firstObj + "('" + trim(consoleString) + "','" + trim(coldelwords) + "')";
 
 
 }

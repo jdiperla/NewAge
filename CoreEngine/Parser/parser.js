@@ -83,7 +83,7 @@ consoleString = consoleString.replace(firstObj[0] + ",", "");
 
 }
 
-
+//This next function will allow you to add a new element to HTML. Adding <objdc>Hello</objdc> will allow that word to be double clicked. 
 function ParsePlayerDoubleClick() {
 	$(document).ready(function() {
 

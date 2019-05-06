@@ -23,6 +23,9 @@ function GameRoom(RoomName, RoomDesc, id, XRes, YRes, RoomImage) {
         this.XRes = "",
         this.YRes = "",
         this.RmImg = "";
+        this.FirstEnter = "False";
+        this.NumTimesEnter = 0;
+        
                                };
 }
    

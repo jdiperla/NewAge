@@ -3,9 +3,12 @@ the correct function to perform. myActionArray and myStringArray act as a contai
 act as a container for words to ignore such "With, on, for, etc...". consoleString & cmdSTR would be the complete command entered by the user.
 textCMD will the command word that was parsed(EG: Look, Talk, etc...). objectTXT grabs the object that we are performing the action on. */
 
-/*A sample call to this function would be: ParsePlayerInput('look,Talk,Walk,Take', 'the,At,On', 'Look at the Shiny Lamp')"; 
-A way to also do a "give" and "use with" or "put on" without ignoring the words needed or to separate the objects. That will 
-be on the next edit */
+/*A sample call to this function would be: ParsePlayerInput('look,Talk,Walk,Take', 'the,At,On', 'on,with,and', 'Look at the Shiny Lamp')"; 
+The first word returned will be the command word, eg: Look. It will separate itself with a semicolon from the rest of the return value. 
+Next comes the primary object the command is being performed on, Eg: Shiny_Lamp and that will separate itself from further objects with a colon.
+eg: Look at the shiny lamp returns: look;shiny_lamp:. If the object interacts with further objects, this will be added after the colon and
+separated by comma's. EG: Look at the Shiny Lamp on the black table with the drawer  - will become: look;shiny_lamp:black_table,drawer*/
+
 function ParsePlayerInput(myActionArray, myIgnoredWords, delimeterWords, consoleString) {
 
 //create array for delimeterWords and ignored words
@@ -67,7 +70,9 @@ for (i = 0; i < a.length; i++) {
 var replacedWord = " " + a[i] + " ";
 
     consoleString = replaceAll(consoleString, replacedWord, ",");
-  coldelwords.push(replacedWord.trim());
+   // consoleString = replaceAll(consoleString, replacedWord, "");
+    
+  //Deprecated: coldelwords.push(replacedWord.trim());
     
 }
 
@@ -76,34 +81,12 @@ consoleString = consoleString.trim();
 consoleString = replaceAll(consoleString, " ", "_");
 
 firstObj = consoleString.split(",", 2);
-consoleString = consoleString.replace(firstObj[0] + ",", "");
 
-      return textcmd + "_" + firstObj[0] + "('" + consoleString.trim() + "','" + coldelwords + "','" + coligwords + "')";
+consoleString = replaceAll(consoleString, firstObj[0] +",", "");
+
+return textcmd + ";" + firstObj[0] + ":" + consoleString.trim();
+
+      //Deprecated: return textcmd + "_" + firstObj[0] + "('" + consoleString.trim() + "','" + coldelwords + "','" + coligwords + "')";
 
 
-}
-
-//This next function will allow you to add a new element to HTML. Adding <objdc>Hello</objdc> will allow that word to be double clicked. 
-function ParsePlayerDoubleClick() {
-	$(document).ready(function() {
-
-    var ObjDblClk = $('objdc');
-    ObjDblClk.css({ cursor: 'pointer' });
-
-    ObjDblClk.dblclick(function(e) {
-        var range = window.getSelection() || document.getSelection() || document.selection.createRange();
-        var word = $.trim(range.toString());
-        if(word != '') {
-        	if CurUIType == "bclick" {
-        		$('#DIV_ShowButtonClick').show();		
-        		CurSelectedItem = word;
-        	}
-            
-        }
-        range.collapse();
-        e.stopPropagation();
-    });
-    
-});
-}
 }

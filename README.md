@@ -1,3 +1,6 @@
+PLEASE SEE AN UPDATED AND IMPROVED VERSION HERE CALLED NEWAGE-REVAMP: https://github.com/jdiperla/NewAge-Revamp. It will have many of the features listed below, but for the time being will be restricted to CYOA, interactive fiction, Visual Novel and Text Adventure games.
+
+
 # NewAge
 NewAge is primarily a new Point and Click Adventure Game engine creator that features a system that will mimic a Point and Click Adventure Game, 1st person adventure and a Text Adventure Game(Parser) or Visual Novel while utilizing Dialogs. It will feature a fully cross platform editor and a fully cross platform game engine. The engine will use an A* Pathfinding system using EasyStar.JS and will implement Phaser JS as it's core graphics toolkit. The goal of this software is to be intuitive and easy to use while not requiring that the developer has programming knowledge and can build a complete and advanced game without scripting or programming anything manually. However, scripting will be allowed optionally. Plugins, Modules and add-ons will also be supported. 
 
